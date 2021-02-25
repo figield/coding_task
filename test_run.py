@@ -76,7 +76,3 @@ class TestRunHorseRace(unittest.TestCase):
 
         self.assertEqual(expected_result, actual_result, 'Horses should be ordered by power')
 
-
-if __name__ == '__main__':
-    run_test()
-
