@@ -33,10 +33,10 @@ class TestRunHorseRace(unittest.TestCase):
         expected_result = list(horses.items())
 
         with patch('run.random.randint') as mock:
-            mock.iter.return_value = return_specific_values(order)
+            mock.side_effect = return_specific_values(order)
             actual_result = run.run(horses)
 
-        self.assertEqual(expected_result, actual_result, 'Horses should be in the correct order')
+        self.assertEqual(expected_result, actual_result, 'Horse order should be as rng')
 
 
     def test_run_same_pos(self):
@@ -44,9 +44,10 @@ class TestRunHorseRace(unittest.TestCase):
         Two horses arrive in the same position. They should be ordered by power.
         """
         horses = {'lighting_legs': 1000,
-                  'dusty': 3}
+                  'dusty_mule': 3}
+
         expected_result = [('lighting_legs', 1000),
-                           ('dusty', 3)]
+                           ('dusty_mule', 3)]
         
         with patch('run.random.randint') as mock:
             mock.side_effect = always_return_zero
