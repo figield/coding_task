@@ -1,4 +1,10 @@
 Instructions
 ============
 
-Type `make` to run the tests
+My notes.
+
+Type `make` to run the tests 
+
+Typy `pytest` to run all available tests
+
+
