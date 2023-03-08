@@ -1,2 +1,2 @@
 all:
-	python3 -m unittest test_*
+	python3 -m unittest tests/test_*

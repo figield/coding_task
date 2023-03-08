@@ -1,4 +1,4 @@
-import run
+from tasks import horse_race
 import unittest
 
 from unittest.mock import patch
@@ -32,9 +32,9 @@ class TestRunHorseRace(unittest.TestCase):
 
         expected_result = list(horses.items())
 
-        with patch('run.random.randint') as mock:
+        with patch('tasks.horse_race.random.randint') as mock:
             mock.side_effect = return_specific_values(order)
-            actual_result = run.run(horses)
+            actual_result = horse_race.run(horses)
 
         self.assertEqual(expected_result, actual_result, 'Horse order should be as rng')
 
@@ -49,9 +49,9 @@ class TestRunHorseRace(unittest.TestCase):
         expected_result = [('lighting_legs', 1000),
                            ('dusty_mule', 3)]
         
-        with patch('run.random.randint') as mock:
+        with patch('tasks.horse_race.random.randint') as mock:
             mock.side_effect = always_return_zero
-            actual_result = run.run(horses)
+            actual_result = horse_race.run(horses)
 
         self.assertEqual(expected_result, actual_result, '')
 
@@ -70,9 +70,9 @@ class TestRunHorseRace(unittest.TestCase):
         expected_result = list(horses.items())
         expected_result.sort(reverse=True, key=sort_by_last_item)
 
-        with patch('run.random.randint') as mock:
+        with patch('tasks.horse_race.random.randint') as mock:
             mock.side_effect = return_max_value
-            actual_result = run.run(horses)
+            actual_result = horse_race.run(horses)
 
         self.assertEqual(expected_result, actual_result, 'Horses should be ordered by power')
 
