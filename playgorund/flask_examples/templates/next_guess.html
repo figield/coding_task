@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guess The Number</title>
+</head>
+<body>
+{% if win == "yes"%}
+<h1>You win</h1>
+{% else %}
+<h1>Is it {{guess}}?</h1>
+{% endif %}
+<form action="" method="POST">
+    <input type="submit" name="user_answer" value="too big">
+    <input type="submit" name="user_answer" value="too small">
+    <input type="submit" name="user_answer" value="you win">
+    <input type="hidden" name="min" value="{{min_value}}">
+    <input type="hidden" name="max" value="{{max_value}}">
+</form>
+</body>
+</html>
